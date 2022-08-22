@@ -48,8 +48,6 @@ function Home() {
 		}
 	}, []);
 
-	console.log(listOfPosts);
-
 	const likeAPost = (postId) => {
 		if (localStorage.getItem(`${authState.username}Liked${postId}`)) {
 			localStorage.removeItem(`${authState.username}Liked${postId}`);
@@ -58,7 +56,7 @@ function Home() {
 		}
 		axios
 			.post(
-				'http://localhost:3002/likes',
+				'https://groupomania-kevin.herokuapp.com/likes',
 				{ PostId: postId },
 				{ headers: { accessToken: localStorage.getItem('accessToken') } }
 			)
