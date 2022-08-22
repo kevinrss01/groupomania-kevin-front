@@ -27,25 +27,27 @@ function Registration() {
 	});
 
 	const onSubmit = (data) => {
-		axios.post('http://localhost:3002/auth', data).then((response) => {
-			if (response.data.error) {
-				console.log('username already taken');
-				setShowErrorMessage(true);
-			} else {
-				axios
-					.post('http://localhost:3002/auth/login', data)
-					.then((response) => {
-						localStorage.setItem('accessToken', response.data.token);
-						setAuthState({
-							username: response.data.username,
-							id: response.data.id,
-							status: true,
+		axios
+			.post('https://groupomania-kevin.herokuapp.com/auth', data)
+			.then((response) => {
+				if (response.data.error) {
+					console.log('username already taken');
+					setShowErrorMessage(true);
+				} else {
+					axios
+						.post('https://groupomania-kevin.herokuapp.com/auth/login', data)
+						.then((response) => {
+							localStorage.setItem('accessToken', response.data.token);
+							setAuthState({
+								username: response.data.username,
+								id: response.data.id,
+								status: true,
+							});
+							navigate('/');
 						});
-						navigate('/');
-					});
-				console.log('user created');
-			}
-		});
+					console.log('user created');
+				}
+			});
 	};
 
 	return (

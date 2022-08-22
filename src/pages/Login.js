@@ -13,19 +13,21 @@ function Login() {
 
 	const login = () => {
 		const data = { username: username, password: password };
-		axios.post('http://localhost:3002/auth/login', data).then((response) => {
-			if (response.data.error) {
-				setErrorMessage(response.data.error);
-			} else {
-				localStorage.setItem('accessToken', response.data.token);
-				setAuthState({
-					username: response.data.username,
-					id: response.data.id,
-					status: true,
-				});
-				navigate('/');
-			}
-		});
+		axios
+			.post('https://groupomania-kevin.herokuapp.com/auth/login', data)
+			.then((response) => {
+				if (response.data.error) {
+					setErrorMessage(response.data.error);
+				} else {
+					localStorage.setItem('accessToken', response.data.token);
+					setAuthState({
+						username: response.data.username,
+						id: response.data.id,
+						status: true,
+					});
+					navigate('/');
+				}
+			});
 	};
 
 	return (
