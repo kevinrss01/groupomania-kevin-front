@@ -593,6 +593,9 @@ span {
   width: 50%;
   height: 80%;
   background-color: #db4437;
+  background-image: url("./city-g8c4d70f53_1920.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 .registrationContainer {
@@ -754,6 +757,9 @@ span {
   width: 50%;
   height: 80%;
   background-color: #db4437;
+  background-image: url("./city-g5eae019b9_1920.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 @media all and (max-width: 1100px) {
   .registrationContainer .containerRightSide {
