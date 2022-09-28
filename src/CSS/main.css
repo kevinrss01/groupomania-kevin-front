@@ -454,6 +454,7 @@ span {
   justify-content: center;
   width: 100%;
   height: 100vh;
+  padding-top: 60px;
   /* RIGHT SIDE*/
 }
 .loginContainer .containerLeftSide {
